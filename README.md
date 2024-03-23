@@ -4,15 +4,19 @@
 
 $ ```git clone https://github.com/plzoenr/quiz-game-with-vite.git```
 
-## 2.Install additional package
+## 2.Move to clone directory
+
+$ ```cd quiz-game-with-vite```
+
+## 3.Install additional package
 
 $ ```npm install```
 
-## 3.Start Sever by
+## 4.Start Sever by
 
 $ ```npm run dev```
 
-## 4.Copy Link and open in web browser
+## 5.Copy Link and open in web browser
 
 url: ```http://localhost:5173```
 
