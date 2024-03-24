@@ -153,21 +153,24 @@ const App: React.FC = () => {
                                     </div>
                                     <div className="answer mb-3">
                                         {shuffledChoices.length > 0 && shuffledChoices[main_index].map((choice, index) => (
-                                            <QuizOption
-                                                key={`option_${main_index}_${index}`}
-                                                name={`option_${main_index}_${index}`}
-                                                value={choice}
-                                                onChange={() => handleAnswerSelection(`option_${main_index}_${index}`,
-                                                    choice === quizItem.correct_answer ? 'correct' : 'incorrect',
-                                                    choice, main_index
-                                                )}
-                                                label={parse(choice) as React.JSX.Element}
-                                            />
+                                            <div key={`option_${main_index}_${index}`}>
+                                                <QuizOption
+                                                    uniqKey={`option_${main_index}_${index}`}
+                                                    name={`option_${main_index}_${index}`}
+                                                    value={choice}
+                                                    onChange={() => handleAnswerSelection(`option_${main_index}_${index}`,
+                                                        choice === quizItem.correct_answer ? 'correct' : 'incorrect',
+                                                        choice, main_index
+                                                    )}
+                                                    label={parse(choice) as React.JSX.Element}
+                                                />
+                                            </div>
                                         ))}
                                     </div>
                                 </div>
                             ))}
-                            {quiz.length > 0 ? (<button type="submit" className="btn btn-primary mt-2 w-100 mb-5">Submit</button>)
+                            {quiz.length > 0 ?
+                                (<button type="submit" className="btn btn-primary mt-2 w-100 mb-5">Submit</button>)
                                 : (<Link to={{pathname: "/"}} onClick={refreshPage}>If quiz not show click this and wait 1 second</Link>)
                             }
                         </form>

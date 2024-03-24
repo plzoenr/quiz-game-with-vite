@@ -5,16 +5,16 @@ interface QuizOptionProps {
     value: string;
     onChange: () => void;
     label: React.JSX.Element;
-    key: string
+    uniqKey: string
 }
-const QuizOption: React.FC<QuizOptionProps> = ({ name, value, onChange, label, key}) => {
+const QuizOption: React.FC<QuizOptionProps> = ({ name, value, onChange, label, uniqKey}) => {
     return (
         <div className="radio">
             <label className="form-check-label">
                 <input
                     type="radio"
                     className="answerInput form-check-inline form-check-input"
-                    key={key}
+                    id={uniqKey}
                     name={name}
                     value={value}
                     onChange={onChange}
