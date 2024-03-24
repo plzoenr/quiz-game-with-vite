@@ -49,7 +49,7 @@ const App: React.FC = () => {
         if (quiz.length !== 20) {
             fetchQuizData();
         }
-    }, [quiz]);
+    }, []);
 
     const shuffleChoices = (quizData: QuizItem[]): void => {
         const shuffled = quizData.map((quizItem) => {
