@@ -29,9 +29,12 @@ const App: React.FC = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        const controller = new AbortController();
         const fetchQuizData = async () => {
             try {
-                const response = await fetch(`https://opentdb.com/api.php?amount=20&category=9&difficulty=easy&type=multiple`);
+                const response = await fetch(`https://opentdb.com/api.php?amount=20&category=9&difficulty=easy&type=multiple`,
+                    {signal: controller.signal}
+                );
                 const data: QuizResponse = await response.json();
                 if (data.results !== undefined) {
                     setQuiz(data.results);
@@ -49,7 +52,9 @@ const App: React.FC = () => {
         if (quiz.length !== 20) {
             fetchQuizData();
         }
-    }, []);
+
+        return () => controller.abort();
+    }, [quiz]);
 
     const shuffleChoices = (quizData: QuizItem[]): void => {
         const shuffled = quizData.map((quizItem) => {
