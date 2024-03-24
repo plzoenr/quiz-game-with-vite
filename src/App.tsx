@@ -54,7 +54,7 @@ const App: React.FC = () => {
         }
 
         return () => controller.abort();
-    }, [quiz]);
+    }, []);
 
     const shuffleChoices = (quizData: QuizItem[]): void => {
         const shuffled = quizData.map((quizItem) => {
